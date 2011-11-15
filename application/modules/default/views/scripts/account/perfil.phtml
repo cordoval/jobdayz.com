@@ -1,0 +1,34 @@
+<fieldset class="form">
+    <div class="messages">
+        <?php echo $this->render('/error/messages.phtml'); ?>
+    </div>
+    <div class="tabs" id="fixContainer">
+        <ul class="tabHeader">
+            <?php 
+				$request = Zend_Controller_Front::getInstance()->getRequest();
+                $action = $request->getActionName(); 
+            ?>
+            <li <?php if( $action == 'perfil'){echo 'class="selected"';} ?>>
+                <a href="<?php echo BASE_URL ?>account/perfil">Perfil</a>
+            </li>
+            <li <?php if( $action == 'ofertas'){echo 'class="selected"';} ?>>
+                <a href="<?php echo BASE_URL ?>account/ofertas">Ofertas</a>
+            </li>
+            <li <?php if( $action == 'publicaciones'){echo 'class="selected"';} ?>>
+                <a href="<?php echo BASE_URL ?>account/publicaciones">Publicaciones</a>
+            </li>
+        </ul>
+        <div class="tabContainer">
+            
+            <div class="tabContent">
+                <?php 
+                if ($action == 'perfil'){
+                    $action = 'form';
+                }
+                $file = "/account/{$action}.phtml";
+                echo $this->render($file); 
+                ?>
+            </div>
+        </div>
+    </div>
+</fieldset>

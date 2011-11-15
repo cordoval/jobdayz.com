@@ -1,0 +1,38 @@
+<div id="pnlLoginContainer" class="pnlLoginContainer">
+    <div class="box">
+        <h5>Bienvenido a jobDayz</h5>
+        <h6>A tu portal de oportunidades.</h6>
+        <p>
+            Aqui podras publicar tus ofertas.
+        </p>
+    </div>
+    <div class="box">
+        <h1>Login</h1>
+        <form method="post" name="formLogin" id="formLogin" class="clearfix" action="<?php echo BASE_URL; ?>autentificar/login/">
+            <label for="email" class="tLeft">Email:</label>
+            <input type="text" size="23" value="" id="email" name="email" />
+            <label for="password" class="tLeft">Password:</label>
+            <input type="password" size="23" id="password" name="password" />
+            <input type="submit" class="bt_login" value="Login" name="submit">
+            <a href="#" class="lost-pwd">Olvide mi password?</a>
+        </form>
+    </div>
+    <div class="box box-right">
+        <h1>Sign Up!</h1>
+        <form method="post" action="<?php echo BASE_URL; ?>account/crear/" name="formRegister" id="formRegister">
+            <label for="email" class="tLeft">Email:</label>
+            <input type="text" size="23" id="emailUp" name="emailUp" />
+            <input type="submit" class="bt_register" value="Registrar" name="submit">
+        </form>
+        <div style="margin-top:5px;padding-left:25px;">
+            <a href="<?php echo BASE_URL; ?>autentificar/facebook">
+                <img src="<?php echo BASE_URL; ?>css/default/images/sign_in_with_facebook.png" alt="facebook" />
+            </a>
+        </div>
+    </div>
+</div>
+<div id="pnlButton" class="pnlButton">
+    <a href="#" id="linkClose">
+        <img src="<?php echo BASE_URL; ?>css/default/images/arrow_up.png" alt="arrow_up" />
+    </a>
+</div>

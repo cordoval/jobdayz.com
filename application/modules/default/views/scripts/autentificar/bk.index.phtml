@@ -1,0 +1,34 @@
+<!--<>script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>-->
+<div id="form_register" style="text-align: center;">
+    <a href="<?php echo BASE_URL; ?>autentificar/login/provider/twitter">
+        <img src="<?php echo BASE_URL; ?>css/default/images/sign_in_with_twitter.png" alt="twitter" />
+    </a>
+    <div id="fb-root"></div>
+    <!--<fb:login-button>Iniciar Sesi&oacute;n con Facebook</fb:login-button>-->
+    <!--<fb:login-button registration-url="http://<myWebSite>/register"/>-->
+    <div class="fb-login-button">Login with Facebook</div>
+</div>
+<script type="text/javascript">
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document)); 
+        window.fbAsyncInit = function() {
+FB.api('/me', function(response) {
+  alert(response.name);
+});        
+        
+        
+          FB.init({
+            appId      : '130488180391498',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            redirect_uri : 'http://jobdayz.com/autentificar/validar'
+          });
+
+        };
+
+</script>

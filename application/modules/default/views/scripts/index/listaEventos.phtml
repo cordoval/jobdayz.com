@@ -1,0 +1,16 @@
+<h3>Eventos pr&oacute;ximos de tu interes...</h3>
+<?php foreach ($this->eventList as $event) : ?>
+<?php $url = BASE_URL . 'evento/detalle/id/' . $event->id; ?>
+<div class="box_offer">
+    <h5>
+        <a href="<?php echo $url; ?>"><?php echo $event->title; ?></a>
+    </h5>
+    <p>
+        <?php echo substr($event->description, 0, 250); ?>
+        <a href="<?php echo BASE_URL; ?>event/detalle/id/<?php echo $offer->id; ?>">Leer Todo</a>
+    </p>
+    <div>
+        <a href="https://twitter.com/share?text=<?php echo $event->title ?>&url=<?php echo $url; ?>" class="twitter-share-button" data-count="vertical">Tweet</a>
+    </div>
+</div>
+<?php endforeach; ?>

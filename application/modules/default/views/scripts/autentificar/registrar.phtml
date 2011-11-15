@@ -1,0 +1,47 @@
+<fieldset class="form">
+    <div class="error">
+    <?php echo $this->render('error/messages.phtml'); ?>
+    </div>
+    <h3>Registro: </h3>
+    <hr/>
+    <form name="formRegister" id="formRegisterSave" action="<?php echo BASE_URL; ?>autentificar/registrar" method="post">
+        <input type="hidden" name="id" id="id" value="<?php echo $this->user->id; ?>" />
+        <div>
+            <label>Email:</label>
+            <input type="text" name="email" id="email" value="<?php echo $this->user->email; ?>" class=":email" />
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="text" name="password" id="password" class=":min_length;6" />
+        </div>
+        <div>
+            <label>Nombres y Apellidos:</label>
+            <input type="text" name="contact" id="contact" class=":min_length;10" />
+        </div>
+        <div>
+            <label>Empresa:</label>
+            <input type="text" name="company" id="company" class=":min_length;6" />
+        </div>
+        <div>
+            <label>Cargo:</label>
+            <select name="positionId" id="positionId">
+            <?php foreach( $this->positionList as $position): ?>
+                <option value="<?php echo $position->id; ?>">
+                    <?php echo $position->name; ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
+        </div>
+        <div>
+            <label>Telefonos:</label>
+            <input type="text" name="phone" id="phone" />
+        </div>
+        <div>
+            <label>Web:</label>
+            <input type="text" name="web" id="web" />
+        </div>
+        <div>
+            <input type="submit" name="save" id="save" value="Registrar" />
+        </div>
+    </form>
+</fieldset>

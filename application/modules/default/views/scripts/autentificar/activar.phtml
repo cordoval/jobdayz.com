@@ -1,0 +1,7 @@
+<?php if( !isset($this->error) ) : ?>
+    <h5>Felicitaciones!!!</h5>
+    <p>Su cuenta fue activada correctamente. Inicie sesion para publicar sus ofertas.</p>
+<?php else: ?>
+<h5>Upppsss......</h5>
+<p><?php echo $this->error; ?></p>
+<?php endif; ?>

@@ -1,0 +1,15 @@
+<?php
+$type = 'info';
+if( isset($this->type) ){
+    $type = $this->type;
+}
+?>
+<?php if (count($this->messages)) : ?>
+<div class="<?php echo $type; ?>">
+    <ul>
+    <?php foreach ($this->messages as $message) : ?>
+        <li><?php echo $this->escape($message); ?></li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

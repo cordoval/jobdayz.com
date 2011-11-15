@@ -1,0 +1,16 @@
+SetEnv APPLICATION_ENV production
+#Habilitamos el mod_rewrite
+RewriteEngine On
+#Ignoramos este archivo, no aplicamos ninguna regla
+RewriteRule ^\.htaccess$ – [F]
+#Si el URI no tiene nada es decir si accedemos a /, hacemos un rewrite a /public/index.php
+RewriteCond %{REQUEST_URI} =”"
+RewriteRule ^.*$ /public/index.php [NC,L]
+#Si el URI no empieza con /public, le adicionamos /public y hacemos el rewrite, de esta manera no necesitamos escribirlo
+RewriteCond %{REQUEST_URI} !^/public/.*$
+RewriteRule ^(.*)$ /public/$1
+#Si el archivo existe fisicamente en el servidor no hacemos nada
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ – [NC,L]
+#Todo lo que venga /public/cualquiercosa lo redireccionamos al index.php para que el bootstrap haga su trabajo
+RewriteRule ^public/.*$ /public/index.php [NC,L]

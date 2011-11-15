@@ -1,0 +1,36 @@
+<ul class="menu">
+    <li class="first">
+        <img src="<?php echo BASE_URL; ?>css/default/images/topbg-lf.jpg" alt="topbg-lf" width="20" height="38" />
+    </li>
+    <li>
+        <a href="/">Inicio</a>
+    </li>
+    <li>
+        <a href="<?php echo BASE_URL; ?>oferta/crear">Crear Ofertaaa</a>
+    </li>
+    <li>
+        <a href="<?php echo BASE_URL; ?>evento/publicar">Publicar Evento</a>
+    </li>
+<?php if( !$auth->logein ) : ?>
+    <li>
+        <a href="#" id="loginRegister">Login | Registro</a>
+    </li>
+<?php else: ?>
+    <li>
+        <a href="/">Perfil</a>
+    </li>
+    <li>
+        <a href="<?php echo BASE_URL; ?>autentificar/logout">Cerrar Sesion</a>
+    </li>
+<?php endif; ?>
+    <li>
+        <a href="#">
+            <img src="<?php echo BASE_URL; ?>css/default/icons/peru.png" alt="peru" width="16" height="16" />
+            <img src="<?php echo BASE_URL; ?>css/default/icons/eu.png" alt="eu" width="16" height="16" />
+        </a>
+    </li>
+    <li class="last">
+        <img src="<?php echo BASE_URL; ?>css/default/images/topbg-rht.jpg" alt="topbg-lf" width="20" height="38" />
+    </li>
+</ul>
+

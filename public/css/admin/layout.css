@@ -1,0 +1,28 @@
+body {
+    background:#7F99BE;
+}
+#header {
+    border-bottom:1px solid #666;
+    background:#1E4176;
+    padding:5px;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+    font-family:'Lucida Grande', Arial, Sans;
+    width: 100%;
+}
+
+/*## Start Code icons 16 ##*/
+.invoice{  
+    background: url(./icons/16/invoice.png) 0px 0px no-repeat !important;  
+}
+.save{  
+    background: url(./icons/16/save.png) 0px 0px no-repeat !important;  
+}
+/*## End Code icons 16 ##*/
+
+/*## Start Code icons 48 ##*/
+.save48{  
+    background: url(./icons/48/save.png) 0px 0px no-repeat !important;  
+}
+/*## End Code icons 48 ##*/

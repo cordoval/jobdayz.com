@@ -1,0 +1,16 @@
+<h3>Oportunidades disponibles para ti...</h3>
+<?php foreach ($this->offerList as $offer) : ?>
+<?php $url = BASE_URL . 'oferta/detalle/id/' . $offer->id; ?>
+<div class="box_offer">
+    <h5>
+        <a href="<?php echo $url; ?>"><?php echo $offer->title; ?></a>
+    </h5>
+    <p>
+        <?php echo substr($offer->description, 0, 250); ?>
+        <a href="<?php echo BASE_URL; ?>oferta/detalle/id/<?php echo $offer->id; ?>">Leer Todo</a>
+    </p>
+    <div>
+        <a href="https://twitter.com/share?text=<?php echo $offer->title ?>&url=<?php echo $url; ?>" class="twitter-share-button" data-count="vertical">Tweet</a>
+    </div>
+</div>
+<?php endforeach; ?>

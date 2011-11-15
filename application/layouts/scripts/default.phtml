@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <meta name="generator" content="jobDayz" />
+	    <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+	    <meta name="keywords" content="" />
+	    <meta name="description" content="" />
+	    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/jquery.cleditor.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/jquery.calendrical.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/jquery.vanadium.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/default/design.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/default/forms.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/default/text.css" type="text/css" />
+
+	    <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/jquery.vanadium.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/jquery.cleditor.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/jquery.calendrical.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/jquery.block.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>scripts/default/application.js"></script>
+		<title>.:: jobDayz ::.</title>
+	</head>
+	<body>
+        <div id="pnlLogin" class="pnlLogin">
+        <?php 
+            // Valid Login :D
+            $auth = new Zend_Session_Namespace('AUTH');
+            if( !$auth->logein ) {
+                echo $this->render('/login.phtml');
+            }
+        ?>
+        </div>
+		<div id="wrapper">
+            <div id="header">
+                <div id="header-top">
+                    <ul class="menu">
+                        <li class="first">
+                            <img src="<?php echo BASE_URL; ?>css/default/images/topbg-lf.jpg" alt="topbg-lf" width="20" height="38" />
+                        </li>
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL; ?>oferta/crear">Publicar Oferta</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL; ?>evento/crear">Publicar Evento</a>
+                        </li>
+                    <?php if( !$auth->logein ) : ?>
+                        <li>
+                            <a href="#" id="loginRegister">Login | Registro</a>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <a href="<?php echo BASE_URL; ?>account/perfil">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL; ?>account/logout">Cerrar Sesion</a>
+                        </li>
+                    <?php endif; ?>
+                        <li class="last">
+                            <a href="http://twitter.com/#!/JobDayz">
+                                <img src="<?php echo BASE_URL; ?>css/default/icons/twitter.png" alt="peru" width="20" height="20" />    
+                            </a>
+                            <a href="http://www.facebook.com/JobDayz">
+                                <img src="<?php echo BASE_URL; ?>css/default/icons/facebook.png" alt="eu" width="20" height="20" />
+                            </a>
+                        </li>
+                        <li>
+                            <img src="<?php echo BASE_URL; ?>css/default/images/topbg-rht.jpg" alt="topbg-lf" width="20" height="38" />
+                        </li>
+                    </ul>
+                </div>
+                <div id="logo">
+                    <img src="<?php echo BASE_URL; ?>css/default/images/logo.png" alt="logo" width="269" height="88" />
+                    <h4>tu portal de oportunidades!</h4>
+                </div>
+            </div>
+            <hr style="clear: both;" />
+            <div id="content">
+                <?php echo $this->layout()->content; ?>
+            </div>
+	    </div>
+	</body>
+</html>

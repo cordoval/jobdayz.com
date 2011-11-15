@@ -1,0 +1,73 @@
+<div class="wd_content">
+    <div class="form">
+        <form id="publishOffer" action="<?php echo BASE_URL; ?>evento/publicar/" method="post">
+            <h4>Publicar Evento</h4>
+            <input type="hidden" id="userId" name="userId" value="<?php echo $this->evento->userId; ?>" />
+            <input type="hidden" id="id" name="id" value="<?php echo $this->evento->id; ?>" />
+            <fieldset>
+                <div>
+                    <label for="title">Titulo <span class="required">&nbsp;*</span></label>
+                    <input type="text" id="title" name="title" style="width: 300px;" class=":min_length;6" value="<?php echo $this->evento->title; ?>" />
+                </div>
+                <div style="height: 250px;">
+                    <label for="description">Descripci&oacute;n<span class="required">&nbsp;*</span></label><br/><br/>
+                    <div style="padding-left:135px;top:-30px;position:relative;">
+                        <textarea id="description" name="description" rows="5" cols="5" style="margin-top: 10px;"><?php echo $this->evento->description; ?></textarea>
+                    </div>
+                </div>
+                <div style="height: 30px;"></div>
+                <div>
+                    <label for="company">Direcci&oacute;n<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="address" name="address" style="width: 300px;" class=":min_length;6" value="<?php echo $this->evento->address; ?>" />
+                </div>
+                <div class="item-form-column">
+                        <label for="address">Dia del Evento:<span class="required">&nbsp;*</span></label>
+                        <input type="text" id="eventDate" name="eventDate" style="width: 100px;" value="<?php echo $this->evento->eventDate; ?>" />
+                        
+                        <label for="company">Hora de Inicio</label>
+                        <input type="text" id="startTime" name="startTime" style="width: 60px;" value="<?php echo $this->evento->startTime; ?>" />
+                        
+                        <label for="address">Hora de Termino:<span class="required">&nbsp;*</span></label>
+                        <input type="text" id="endTime" name="endTime" style="width: 60px;"  value="<?php echo $this->evento->endTime; ?>" />
+                </div>
+                <div>
+                    <label for="company">Web</label>
+                    <input type="text" id="website" name="website" style="width: 300px;" value="<?php echo $this->evento->web; ?>"/>
+                </div>
+                <div>
+                    <label for="company">Empresa<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="company" name="company" style="width: 300px;" class=":min_length;6" value="<?php echo $this->evento->company; ?>" />
+                </div>
+                
+                <div>
+                    <label for="contact">Contacto<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="contact" name="contact" style="width: 300px;" class=":min_length;8" value="<?php echo $this->evento->contact; ?>"/>
+                </div>
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" name="email" style="width: 300px;" value="<?php echo $this->evento->email; ?>" />
+                </div>
+                <div>
+                    <label for="phone">Telefono(s)<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="phone" name="phone" style="width: 300px;" class=":min_length;8" value="<?php echo $this->evento->phone; ?>"/>
+                </div>
+                <input type="submit" name="save" id="save" value="Publicar Oferta" class="btsave" />
+                <a href="<?php echo BASE_URL ?>account/publicaciones/">Mostrar Lista</a>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //$('#publishOffer').formToWizard();
+        $('#description').cleditor({
+            width:        675, // width not including margins, borders or padding
+            //height:       200, // height not including margins, borders or padding
+            controls:     // controls to add to the toolbar
+                        "bold italic underline strikethrough subscript superscript | font size " +
+                        "style | color highlight removeformat | bullets numbering | outdent " +
+                        "indent | alignleft center alignright justify | undo redo | " +
+                        "rule link unlink | cut copy paste pastetext"
+        });
+    });
+</script>

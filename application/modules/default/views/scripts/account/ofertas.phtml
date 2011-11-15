@@ -1,0 +1,46 @@
+<table width="100%" class="datatable" id="tablePublicacion">
+    <thead>
+        <tr>
+            <th width="5%">Item</th>
+            <th width="60%">Titulo</th>
+            <th width="5%">Publicacion</th>
+            <th width="15%">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->ofertasList as $oferta): ?>
+        <tr id="<?php echo $oferta->id; ?>">
+            <td class="item"><?php echo $oferta->id; ?></td>
+            <td><?php echo $oferta->title; ?></td>
+            <td><?php echo strftime("%Y-%m-%d",strtotime($oferta->publish)); ?></td>
+            <td align="center">
+                <a href="<?php echo BASE_URL; ?>oferta/borrar/id/<?php echo $oferta->id ?>" class="action borrar">Borrar</a>|
+                <a href="<?php echo BASE_URL; ?>oferta/editar/id/<?php echo $oferta->id ?>" class="editar">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
+<script type="text/javascript">
+$(document).ready(function(){
+    var fixContainer = $('#fixContainer');
+    $('#tablePublicacion').delegate('a.action', 'click', function(e){
+        e.preventDefault();
+        var current = $(this);
+        var currentRow = current.parents('tr');
+        var currentId  = currentRow.attr('id');
+        
+        if( current.hasClass('borrar') ){
+            if( confirm('Seguro de borrar esta oferta?') ){
+                fixContainer.block();
+                $.post(current.attr('href'), {id : currentId}, function(response){
+                    if(response && response.status){
+                        currentRow.fadeOut().remove();    
+                    }
+                    fixContainer.unblock();
+                }, 'json');
+            }
+        }
+    });
+});
+</script>

@@ -1,0 +1,53 @@
+<?php $myuser = null;
+    if( isset($this->user) ){
+        $myuser = $this->user;
+    }
+?>
+<h3><?php echo ($this->completeRecord == false ? 'Completar' : 'Modificar'); ?>&nbsp;Datos:(<em>*</em> Son Oblogatorios)</h3>
+<hr/>
+<form name="formRegister" id="formRegisterSave" action="<?php echo BASE_URL; ?>account/guardar" method="post">
+    <input type="hidden" name="id" id="id" value="<?php if( isset($myuser->id) ) { echo $myuser->id; } ?>" />
+    <input type="hidden" name="active" id="active" value="<?php if( isset($myuser->active) ) { echo $myuser->active; } ?>" />
+    <div>
+        <label>Nombres y Apellidos(Contacto):</label>
+        <input type="text" name="contact" id="contact" class=":min_length;10" value="<?php echo $myuser['contact'];  ?>" size="45" />
+        <em>*</em>
+    </div>
+    <div>
+        <label>Empresa:</label>
+        <input type="text" name="company" id="company" class=":min_length;6" value="<?php if( $myuser != null  ) { echo $myuser->company; } ?>" size="35" />
+        <em>*</em>
+    </div>
+    <div>
+        <label>Cargo:</label>
+        <select name="positionId" id="positionId">
+        <?php foreach( $this->positionList as $position): ?>
+            <option value="<?php echo $position->id; ?>">
+                <?php echo $position->name; ?>
+            </option>
+        <?php endforeach; ?>
+        </select>
+        <em>*</em>
+    </div>
+    <div>
+        <label>Telefonos:</label>
+        <input type="text" name="phone" id="phone" value="<?php if( $myuser != null  ) { echo $myuser->phone; } ?>" />
+    </div>
+    <div>
+        <label>Web:</label>
+        <input type="text" name="web" id="web" value="<?php if( $myuser != null  ) { echo $myuser->web; } ?>" size="35" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="email" id="email" value="<?php if( $myuser != null ) { echo $myuser->email; } ?>" class=":email :min_length;8" size="35" />
+        <em>*</em>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="text" name="password" id="password" <?php if( !$myuser->active ){ echo 'class=":min_length;6"'; } ?> />
+        <em>*</em>
+    </div>
+    <div style="padding-left: 130px;">
+        <input type="submit" name="save" id="save" value="Guardar" />
+    </div>
+</form>

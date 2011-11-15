@@ -1,0 +1,70 @@
+<div class="wd_content">
+    <div class="form">
+        <form id="publishOffer" action="<?php echo BASE_URL; ?>oferta/publicar/" method="post">
+            <h4>Crear Oferta</h4>
+            <input type="hidden" id="userId" name="userId" value="<?php echo $this->user->id; ?>" />
+            <fieldset>
+                <div class="item-form">
+                    <label for="title">Titulo <span class="required">&nbsp;*</span></label>
+                    <input type="text" id="title" name="title" style="width: 300px;" class=":min_length;6" />
+                </div>
+                <div class="item-form">
+                    <label for="category">Categoria<span class="required">&nbsp;*</span></label>
+                    <select id="categoryId" name="categoryId">
+                    <?php foreach($this->categoryList as $category): ?>
+                    <option value="<?php echo $category->id; ?>">
+                        <?php echo $category->name; ?>
+                    </option>
+                    <?php endforeach;?>
+                    </select>
+                </div>
+                <div class="item-form" style="height: 250px;">
+                    <label for="description">Descripci&oacute;n<span class="required">&nbsp;*</span></label><br/><br/>
+                    <div style="padding-left:135px;top:-30px;position:relative;">
+                        <textarea id="description" name="description" rows="5" cols="5" style="margin-top: 10px;"></textarea>
+                    </div>
+                </div>
+                <div style="height: 30px;"></div>
+                <div class="item-form">
+                    <label for="company">Empresa<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="company" name="company" style="width: 300px;" class=":min_length;6" value="<?php echo $this->user->company; ?>" />
+                </div>
+                <div class="item-form">
+                    <label for="contact">Contacto<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="contact" name="contact" style="width: 300px;" class=":min_length;8" value="<?php echo $this->user->contact; ?>"/>
+                </div>
+                <div class="item-form">
+                    <label for="phone">Telefono(s)<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="phone" name="phone" style="width: 300px;" class=":min_length;8" value="<?php echo $this->user->phone; ?>"/>
+                </div>
+                <div class="item-form">
+                    <label for="address">Direcci&oacute;n<span class="required">&nbsp;*</span></label>
+                    <input type="text" id="address" name="address" style="width: 300px;" class=":min_length;8"/>
+                </div>
+                <div class="item-form">
+                    <label for="company">Web</label>
+                    <input type="text" id="website" name="website" style="width: 300px;" value="<?php echo $this->user->web; ?>"/>
+                </div>
+                <div class="item-form">
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" name="email" style="width: 300px;" />
+                </div>
+                <input type="submit" name="save" id="save" value="Publicar Oferta" class="btsave" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //$('#publishOffer').formToWizard();
+        $('#description').cleditor({
+            width:        675, // width not including margins, borders or padding
+            //height:       200, // height not including margins, borders or padding
+            controls:     // controls to add to the toolbar
+                        "bold italic underline strikethrough subscript superscript | font size " +
+                        "style | color highlight removeformat | bullets numbering | outdent " +
+                        "indent | alignleft center alignright justify | undo redo | " +
+                        "rule link unlink | cut copy paste pastetext"
+        });
+    });
+</script>
